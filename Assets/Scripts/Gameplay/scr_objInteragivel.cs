@@ -9,9 +9,10 @@ public class scr_objInteragivel : MonoBehaviour
     public bool usou;
     public bool empilhadeira;
     public bool isAutomatica;
-
+    public scr_player_mov playerLink;
     void Start()
     {
+        playerLink = FindObjectOfType<scr_player_mov>();
         anim = GetComponent<Animator>();
     }
 
@@ -22,25 +23,31 @@ public class scr_objInteragivel : MonoBehaviour
 
     IEnumerator interagir()
     {
-        yield return new WaitForSeconds(0.5f);
         if (!isPorta && !usou)
         {
+            playerLink.Interagir();
             usou = true;
+            yield return new WaitForSeconds(0.25f);
             anim.SetBool("usou", true);
         }
         if (isPorta)
         {
+            playerLink.Interagir();
             usou = !usou;
+            yield return new WaitForSeconds(0.25f);
             anim.SetBool("usou", usou);
         }
         if (empilhadeira)
         {
+            playerLink.Interagir();
+            yield return new WaitForSeconds(0.25f);
             anim.SetTrigger("desce");
         }
         if (isAutomatica)
         {
+            yield return new WaitForSeconds(0.25f);
             GetComponent<Collider>().isTrigger = true;
-        }
+        }    
     }
 
     private void OnTriggerExit(Collider collision)

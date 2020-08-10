@@ -2504,5 +2504,19 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1387517615, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 853464885, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 284964928, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 1813190896, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 823610890, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 470586090, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 1829449518, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 881714435, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 1002296262, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 2120274421, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 734713942, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 186700206, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 104276185, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
+    - {fileID: 808419541, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a56ee0ebe26dfc942850d0b0e2e057fa, type: 3}

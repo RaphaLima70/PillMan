@@ -9,19 +9,24 @@ public class scr_inimigo_mov : MonoBehaviour
 {
     public Transform playerT;
     public Transform[] posicoes;
-    Timeline time;
+
+
     scr_campoDeVisao campoLink;
     scr_player_mov playerLink;
+    scr_inimigo_atack atackLink;
+
     Animator anim;
     public bool morreu;
     public bool patrulheiro;
     public bool podeAndar;
 
+    public int achou;
+    public float velocidade;
+
     public int contaPosiAtual = 0;
     public float delayInicial;
     public float delay;
     public float tempoPerdendoPlayer;
-    public float alcance;
     public int posiAtual;
 
     scr_rewindControll rewindLink;
@@ -30,25 +35,44 @@ public class scr_inimigo_mov : MonoBehaviour
 
     private void Start()
     {
-        rewindLink = FindObjectOfType<scr_rewindControll>();
-        morreu = false;
-        delay = delayInicial;
-        time = GetComponent<Timeline>();
-        anim = GetComponent<Animator>();
-        playerLink = FindObjectOfType<scr_player_mov>();
         playerT = GameObject.FindGameObjectWithTag("Player").transform;
+        rewindLink = FindObjectOfType<scr_rewindControll>();
+        playerLink = FindObjectOfType<scr_player_mov>();
         campoLink = GetComponent<scr_campoDeVisao>();
+        atackLink = GetComponent<scr_inimigo_atack>();
         nav = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
+        delay = delayInicial;
         podeAndar = true;
+        morreu = false;
     }
 
     void Update()
     {
+        if (achou > 0)
+        {
+            atackLink.vendoPlayer = true;
+        }
+        else
+        {
+            atackLink.vendoPlayer = false;
+        }
+
+
         if (!morreu)
         {
             GetComponent<CapsuleCollider>().enabled = true;
-           
-            Procurar();
+
+            if (rewindLink.rebobinando)
+            {
+                achou = 0;
+                tempoPerdendoPlayer = 0;
+            }
+            else
+            {
+                achou = campoLink.visibleTargets.Count;
+                Procurar();
+            }
         }
         else
         {
@@ -60,9 +84,9 @@ public class scr_inimigo_mov : MonoBehaviour
 
     void Procurar()
     {
-        if (campoLink.visibleTargets.Count > 0 || tempoPerdendoPlayer > 0)
+        if (achou > 0 || tempoPerdendoPlayer > 0)
         {
-            if (campoLink.visibleTargets.Count <= 0)
+            if (achou <= 0)
             {
                 campoLink.viewMeshFilter.gameObject.SetActive(true);
                 tempoPerdendoPlayer -= Time.deltaTime;
@@ -71,31 +95,45 @@ public class scr_inimigo_mov : MonoBehaviour
             {
                 campoLink.viewMeshFilter.gameObject.SetActive(false);
                 tempoPerdendoPlayer = delayInicial;
+                transform.LookAt(playerT);
             }
             if (playerLink.vivo)
-            {               
+            {
                 SeguirPlayer();
             }
             else
             {
+                //animacao rindo
                 tempoPerdendoPlayer = 0;
             }
-            
+
         }
         else
         {
+            campoLink.viewMeshFilter.gameObject.SetActive(true);
             if (patrulheiro)
             {
-                Patrulhar();
+                Patrulhar(); 
+            }
+            else
+            {
+                if (Vector3.Distance(transform.position, posicoes[contaPosiAtual].position) > 1)
+                {
+                    nav.SetDestination(posicoes[0].position);
+                }
+                else
+                {
+                    transform.LookAt(posicoes[1].position);
+                }
             }
         }
     }
 
     void Patrulhar()
     {
+        nav.speed = 5;
         nav.SetDestination(posicoes[contaPosiAtual].position);
-        
-        if (Vector3.Distance(transform.position, posicoes[contaPosiAtual].position) < 2f)
+        if (Vector3.Distance(transform.position, posicoes[contaPosiAtual].position) < 2)
         {
             if (delay <= 0)
             {
@@ -117,14 +155,13 @@ public class scr_inimigo_mov : MonoBehaviour
         {
             anim.SetInteger("estado", 1);
         }
-
     }
 
     void SeguirPlayer()
     {
-        if (Vector3.Distance(transform.position, playerT.position) < alcance)
+        if (Vector3.Distance(transform.position, playerT.position) < atackLink.alcance)
         {
-            playerLink.MorrerCacetete();
+            atackLink.Atack();
             anim.SetInteger("estado", 3);
             nav.Stop();
         }
@@ -132,12 +169,20 @@ public class scr_inimigo_mov : MonoBehaviour
         {
             anim.SetInteger("estado", 2);
             nav.Resume();
+            if (!rewindLink.managerLink.slowTempo)
+            {
+
+                nav.speed = velocidade;
+            }
+            else
+            {
+                Debug.Log("slow");
+            }
             nav.SetDestination(playerT.position);
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "porta")
         {
             tempoPerdendoPlayer = 0;
@@ -145,11 +190,10 @@ public class scr_inimigo_mov : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "morte")
+        if (other.tag == "morte")
         {
             morreu = true;
             anim.SetInteger("estado", 4);
         }
-
     }
 }

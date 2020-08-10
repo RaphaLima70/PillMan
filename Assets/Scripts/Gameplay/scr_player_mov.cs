@@ -13,7 +13,8 @@ public class scr_player_mov : MonoBehaviour
     public bool rebobinando;
     public float tempoReviver;
     public float tempoReviverMax;
-
+    public bool podeInteragir;
+    public LayerMask layerInt;
 
     private void Start()
     {
@@ -27,7 +28,9 @@ public class scr_player_mov : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(tempoReviver>=0 && vivo == false && rebobinando)
+        VerificaInteracao();
+
+        if (tempoReviver >= 0 && vivo == false && rebobinando)
         {
             tempoReviver += Time.deltaTime * 2;
             anim.SetInteger("estado", 0);
@@ -35,7 +38,7 @@ public class scr_player_mov : MonoBehaviour
             {
                 tempoReviver = 2;
                 vivo = true;
-            }           
+            }
         }
 
         if (vivo)
@@ -82,13 +85,27 @@ public class scr_player_mov : MonoBehaviour
 
     }
 
+    void VerificaInteracao()
+    {
+        RaycastHit hit;
+        podeInteragir = Physics.Raycast(transform.position, transform.forward, out hit, 1.5f, layerInt);
+        Debug.DrawRay(transform.position, transform.forward * 1.2f);
+        if (podeInteragir)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                hit.transform.GetComponent<scr_gatilhoInteragivel>().InteragirObj();
+            }
+        }
+    }
+
     void Rotacionar()
     {
         transform.eulerAngles = new Vector3(0, Mathf.Atan2(
         Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * 180 / Mathf.PI, 0);
     }
 
-    void Interagir()
+    public void Interagir()
     {
         anim.SetTrigger("interagir");
     }
@@ -118,7 +135,7 @@ public class scr_player_mov : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "vitoria")
+        if (other.tag == "vitoria")
         {
             managerLink.Vitoria();
         }
@@ -126,18 +143,6 @@ public class scr_player_mov : MonoBehaviour
         if (other.tag == "laser")
         {
             MorrerLaser();
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Interagivel")
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                other.GetComponent<scr_gatilhoInteragivel>().InteragirObj();
-                Interagir();
-            }
         }
     }
 }

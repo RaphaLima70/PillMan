@@ -52,7 +52,7 @@ public class scr_gameManager : MonoBehaviour
         pauseMenu = GameObject.Find("BGPause");
         gameOverPanel.SetActive(false);
         video.SetActive(false);
-        pausado = false;
+        Despausar();
     }
 
     void Update()
@@ -66,17 +66,10 @@ public class scr_gameManager : MonoBehaviour
                 comecou = true;
             }
         }
-        if (pausado)
-        {
-            Pausar();
-        }
-        else
-        {
-            Despausar();
-        }
+
         if (Input.GetButtonDown("Submit"))
         {
-            pausado = !pausado;
+            Pausar();
         }
         if (venceu)
         {
@@ -103,8 +96,7 @@ public class scr_gameManager : MonoBehaviour
     }
 
     public void GameOver()
-    {     
-       
+    {      
         Time.timeScale = 0;
         comecou = false;
         if(gameOver == false)
@@ -118,9 +110,16 @@ public class scr_gameManager : MonoBehaviour
 
     public void Pausar()
     {
-        pausado = true;
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0;
+        pausado = !pausado;
+        if (pausado)
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Despausar();
+        }        
     }
     public void Despausar()
     {
@@ -141,11 +140,12 @@ public class scr_gameManager : MonoBehaviour
 
     IEnumerator abrirFaseCoroutine(string cenaNome)
     {
+        Time.timeScale = 0;
         gameOverPanel.SetActive(false);
         trocandoDeCena = true;
         pausado = false;
         video.SetActive(true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
         SceneManager.LoadSceneAsync(cenaNome);
     }
 

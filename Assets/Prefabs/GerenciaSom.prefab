@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852617981177339}
   - component: {fileID: 6731852617981177338}
+  - component: {fileID: 808419541}
   m_Layer: 0
   m_Name: aperta_botao
   m_TagString: Untagged
@@ -127,6 +128,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &808419541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852617981177336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852618052214684
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852618052214687}
   - component: {fileID: 6731852618052214686}
+  - component: {fileID: 104276185}
   m_Layer: 0
   m_Name: inimigos_morrem
   m_TagString: Untagged
@@ -254,6 +273,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &104276185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852618052214684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852618233518434
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852618233518461}
   - component: {fileID: 6731852618233518460}
+  - component: {fileID: 186700206}
   m_Layer: 0
   m_Name: FASE 3, 5 Professor_Kliq_-_03_-_Bust_This_Bust_That
   m_TagString: Untagged
@@ -381,6 +418,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &186700206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852618233518434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852618264030788
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852618264030791}
   - component: {fileID: 6731852618264030790}
+  - component: {fileID: 734713942}
   m_Layer: 0
   m_Name: FASE 1, 4 adcBicycle_-_02_-_poor_economic_policies
   m_TagString: Untagged
@@ -508,6 +563,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &734713942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852618264030788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852618547856097
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +676,8 @@ MonoBehaviour:
   - {fileID: 6731852619356133468}
   - {fileID: 6731852619977631681}
   mute: 0
+  mutadoObj: {fileID: 0}
+  desmutadoObj: {fileID: 0}
 --- !u!1 &6731852618617053982
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852618617053977}
   - component: {fileID: 6731852618617053976}
+  - component: {fileID: 2120274421}
   m_Layer: 0
   m_Name: empilhadeira_abaixa_sobe
   m_TagString: Untagged
@@ -731,6 +806,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2120274421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852618617053982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852618839672171
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852618839672170}
   - component: {fileID: 6731852618839672165}
+  - component: {fileID: 1002296262}
   m_Layer: 0
   m_Name: inimigos_perdem_o_player_de_vista
   m_TagString: Untagged
@@ -858,6 +951,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1002296262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852618839672171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852618843673717
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852618843673716}
   - component: {fileID: 6731852618843673719}
+  - component: {fileID: 881714435}
   m_Layer: 0
   m_Name: botao_elevador
   m_TagString: Untagged
@@ -985,6 +1096,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &881714435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852618843673717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852618867772791
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,6 +1123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852618867772790}
   - component: {fileID: 6731852618867772785}
+  - component: {fileID: 1829449518}
   m_Layer: 0
   m_Name: inimigo1_rindo_ao_matar_player
   m_TagString: Untagged
@@ -1112,6 +1241,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1829449518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852618867772791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852619128915974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852619128915969}
   - component: {fileID: 6731852619128915968}
+  - component: {fileID: 470586090}
   m_Layer: 0
   m_Name: inimigo1_bate_na_cabeca
   m_TagString: Untagged
@@ -1239,6 +1386,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &470586090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852619128915974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852619356133442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,6 +1413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852619356133469}
   - component: {fileID: 6731852619356133468}
+  - component: {fileID: 823610890}
   m_Layer: 0
   m_Name: player_morre
   m_TagString: Untagged
@@ -1366,6 +1531,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &823610890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852619356133442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852619526637249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852619565476558}
   - component: {fileID: 6731852619565476553}
+  - component: {fileID: 1813190896}
   m_Layer: 0
   m_Name: inimigos_veem_o_player
   m_TagString: Untagged
@@ -1533,6 +1716,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1813190896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852619565476559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852619744622483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,6 +1743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852619744622509}
   - component: {fileID: 6731852619744622482}
+  - component: {fileID: 284964928}
   m_Layer: 0
   m_Name: MENUS Erdbeerschnitzel_-_Walkampfchampagne
   m_TagString: Untagged
@@ -1660,6 +1861,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &284964928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852619744622483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852619937855767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,6 +1888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852619937855766}
   - component: {fileID: 6731852619937855761}
+  - component: {fileID: 853464885}
   m_Layer: 0
   m_Name: FASE 2 Karaoke_Mouse_-_04_-_Shanghai_Reggae_DJ_Sides_Alternate_Take
   m_TagString: Untagged
@@ -1787,6 +2006,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &853464885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852619937855767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &6731852619977631686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +2033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731852619977631680}
   - component: {fileID: 6731852619977631681}
+  - component: {fileID: 1387517615}
   m_Layer: 0
   m_Name: tinimigo1_tiro
   m_TagString: Untagged
@@ -1914,3 +2151,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1387517615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731852619977631686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Inimigos
+  _rewindable: 1
+  _recordingDuration: 30

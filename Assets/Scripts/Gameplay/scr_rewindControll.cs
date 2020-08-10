@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class scr_rewindControll : MonoBehaviour
 {
     Clock clockPlayer, clockIni;
-    scr_gameManager managerLink;
+    public scr_gameManager managerLink;
     public float energia;
     public float delayInicial;
     float delay;
@@ -93,7 +93,7 @@ public class scr_rewindControll : MonoBehaviour
 
     public void ControlaPoder()
     {
-        rebobinando = false;
+        //rebobinando = false;
         if (!managerLink.controlandoTempo && !managerLink.slowTempo)
         {
             if (energia < managerLink.energiaMax)
@@ -116,6 +116,7 @@ public class scr_rewindControll : MonoBehaviour
 
     public void PararPoder()
     {
+        rebobinando = false;
         playerLink.rebobinando = false;
         clockPlayer.localTimeScale = 1;
         clockIni.localTimeScale = 1;
