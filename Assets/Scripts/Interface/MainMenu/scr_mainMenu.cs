@@ -16,6 +16,7 @@ public class scr_mainMenu : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         anim.gameObject.SetActive(true);
         FechaMenus();
         painelHome.SetActive(true);

@@ -10,7 +10,7 @@ public class scr_gameManager : MonoBehaviour
     public bool pausado;
     public bool controlandoTempo;
     public bool slowTempo;
-    public float energiaMax = 10;
+    public float energiaMax = 12;
     public int faseAtual;
 
     public GameObject winPanel;

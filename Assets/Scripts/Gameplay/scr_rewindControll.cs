@@ -32,7 +32,7 @@ public class scr_rewindControll : MonoBehaviour
 
     void Update()
     {
-        energiaBar.fillAmount =  (energia/15) *0.3f;
+        energiaBar.fillAmount =  (energia/15) * 0.3f;
 
         if (managerLink.trocandoDeCena)
         {
@@ -50,7 +50,7 @@ public class scr_rewindControll : MonoBehaviour
     {
         if (!managerLink.slowTempo)
         {
-            custo = 3;
+            custo = 2f;
             if (Input.GetButtonDown("Fire1") && energia > 0 && delay <= 0)
             {
                 managerLink.controlandoTempo = true;
@@ -74,7 +74,7 @@ public class scr_rewindControll : MonoBehaviour
     {
         if (!managerLink.controlandoTempo && managerLink.faseAtual>1)
         {
-            custo = 2.5f;
+            custo = 1f;
             if (Input.GetButtonDown("Fire2") && energia > 0 && delay <= 0)
             {
                 managerLink.slowTempo = true;
@@ -96,11 +96,7 @@ public class scr_rewindControll : MonoBehaviour
         //rebobinando = false;
         if (!managerLink.controlandoTempo && !managerLink.slowTempo)
         {
-            if (energia < managerLink.energiaMax)
-            {
-                energia += 0.5f * Time.deltaTime;
-            }
-            else
+            if (energia >= managerLink.energiaMax)
             {
                 energia = managerLink.energiaMax;
             }

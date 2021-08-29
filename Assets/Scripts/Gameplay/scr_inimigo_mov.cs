@@ -153,6 +153,7 @@ public class scr_inimigo_mov : MonoBehaviour
         }
         else
         {
+            nav.Resume();
             anim.SetInteger("estado", 1);
         }
     }
@@ -171,7 +172,6 @@ public class scr_inimigo_mov : MonoBehaviour
             nav.Resume();
             if (!rewindLink.managerLink.slowTempo)
             {
-
                 nav.speed = velocidade;
             }
             else

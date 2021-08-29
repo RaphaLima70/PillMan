@@ -30,7 +30,6 @@ public class scr_inimigo_atack : MonoBehaviour
         {
             if (isRanged)
             {
-
                 playerLink.MorrerTiro();
             }
             else

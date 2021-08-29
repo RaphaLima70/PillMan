@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class scr_objInteragivel : MonoBehaviour
 {
@@ -10,10 +11,17 @@ public class scr_objInteragivel : MonoBehaviour
     public bool empilhadeira;
     public bool isAutomatica;
     public scr_player_mov playerLink;
+    private NavMeshObstacle obstacle;
+    
     void Start()
     {
         playerLink = FindObjectOfType<scr_player_mov>();
         anim = GetComponent<Animator>();
+        if (isPorta || isAutomatica)
+        {
+            obstacle = GetComponent<NavMeshObstacle>();
+            obstacle.enabled = true;
+        }
     }
 
     public void Interagir()
@@ -34,7 +42,8 @@ public class scr_objInteragivel : MonoBehaviour
         {
             playerLink.Interagir();
             usou = !usou;
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.1f);
+            obstacle.enabled = !obstacle.enabled;
             anim.SetBool("usou", usou);
         }
         if (empilhadeira)
@@ -56,6 +65,7 @@ public class scr_objInteragivel : MonoBehaviour
         {
             GetComponent<Collider>().isTrigger = false;
             anim.SetBool("usou", false);
+            obstacle.enabled = true;
         }
     }
 

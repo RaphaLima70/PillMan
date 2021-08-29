@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class scr_player_mov : MonoBehaviour
 {
-    public float velocidade;
+    float velocidade;
     Vector3 movimento;
     Rigidbody rigid;
     scr_gameManager managerLink;
@@ -18,6 +18,7 @@ public class scr_player_mov : MonoBehaviour
 
     private void Start()
     {
+        velocidade = 23;
         rebobinando = false;
         tempoReviverMax = 2;
         tempoReviver = tempoReviverMax;
@@ -33,12 +34,13 @@ public class scr_player_mov : MonoBehaviour
         if (tempoReviver >= 0 && vivo == false && rebobinando)
         {
             tempoReviver += Time.deltaTime * 2;
-            anim.SetInteger("estado", 0);
+            //anim.SetInteger("estado", 0);
             if (tempoReviver > 0)
             {
                 tempoReviver = 2;
                 vivo = true;
             }
+            movimento = Vector3.zero;
         }
 
         if (vivo)
@@ -70,8 +72,8 @@ public class scr_player_mov : MonoBehaviour
 
     void Movimentacao(float h, float v)
     {
-        movimento.Set(h, 0, v);
-        if (movimento != Vector3.zero)
+        movimento.Set(h, 0, v) ;
+        if (h != 0 || v != 0)
         {
             anim.SetInteger("estado", 1);
         }
@@ -79,9 +81,9 @@ public class scr_player_mov : MonoBehaviour
         {
             anim.SetInteger("estado", 0);
         }
-        movimento = movimento.normalized * velocidade * Time.deltaTime;
+        movimento = movimento.normalized * velocidade * Time.fixedDeltaTime;
 
-        rigid.MovePosition(transform.position + movimento);
+        rigid.velocity = (movimento * velocidade);
 
     }
 
